@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1650354206 source:z:\prog_darbi\autoserviss_projekts_kk\main.cpp
+	<iostream>
+	<fstream>
+	<ctime>
+	<stdio.h>
+	<bits/stdc++.h>
+
