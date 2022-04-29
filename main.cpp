@@ -8,32 +8,28 @@ using namespace std;
 
 int main()
 {
+       int vsk;
+       int uzsk;
+       fstream file;
+       string filename;
+       string vardi_2;
+       string uzvardi_2;
+       string produkti_2;
+       string vardi[9999];
+       string uzvardi[9999];
+       string produkti[9999];
 
-    srand(time(0));
+   {
+       filename = "personuvardi.txt";
+       file.open(filename.c_str());
 
-    fstream file;
-    string word, filename;
-    string vrdi1;
-    string uzvrdi2;
-    string vardi[8];
-    string uzvardi[8];
-    int a = 0;
-    int b = 0;
-    int c = 0;
-    int reizes = 0;
-    int ID = 0;
-
-
-    filename = "vardi.txt";
-    file.open(filename.c_str());
-
-    cout << "Ludzu ievadiet personu vardus" << endl;
+ cout << "Personu vardi: " << endl;
     for(int i = 0; i < 8; i++)
         {
-            cout <<"Personas:" << i << endl;
-            file >> vrdi1;
-            cout << vrdi1 << endl;
-            vardi[i] = vrdi1;
+            cout <<"Vards:" << i << endl;
+            file >> vardi_2;
+            cout << vardi_2 << endl;
+            vardi[i] = vardi_2;
         }
     cout << endl;
 
@@ -44,160 +40,57 @@ int main()
         }
     cout << endl;
     file.close();
-
-    filename = "uzvardi.txt";
+   }
+    filename = "uzvardi2.txt";
     file.open(filename.c_str());
-
-    cout << "Ludzu ievadiet personu uzvardus" << endl;
 
     for(int j = 0; j < 8; j++)
         {
             cout <<"Personas:" << j << endl;
-            file >> uzvrdi2;
-            cout << uzvrdi2 << endl;
-            uzvardi[j] = uzvrdi2;
+            file >> uzvardi_2;
+            cout << uzvardi_2 << endl;
+            uzvardi[j] = uzvardi_2;
         }
     cout << endl;
 
     for(int j = 0; j < 8; j++)
         {
             cout << uzvardi[j] << " ";
+
         }
     cout << endl;
     file.close();
 
-    cout << "Ievadiet 2D masivu izmerus, robeza no 3 lidz 9" << endl;
-    cin >> a;
-    cin >> b;
+
+    filename = "produkti2.txt";
+    file.open(filename.c_str());
+
+    for(int k = 0; k < 8; k++)
+        {
+            cout <<"Produkti:" << k << endl;
+            file >> produkti_2;
+            cout << produkti_2 << endl;
+            produkti[k] = produkti_2;
+        }
+    cout << endl;
+
+    for(int k = 0; k < 8; k++)
+        {
+            cout << produkti[k] << " ";
+
+        }
+    cout << endl;
+    file.close();
+
+    int a = 50;
+    int b = 50;
 
     cout << endl;
 
     ofstream mans_fails;
-    mans_fails.open("dati.txt",ios::out);
+    mans_fails.open("dati2.txt", ios::out);
 
-
-    for(int x = 0; x < a; x++)
-     {
-      if(x == 0)
-          {
-             cout << "ID";
-             cout << " ";
-             mans_fails << "ID ";
-          }
-         if(x == 1)
-             {
-                cout << "Vards";
-                cout << " ";
-                mans_fails << "Vards ";
-             }
-            if(x == 2)
-                {
-                    cout << "Uzvards";
-                    cout << " ";
-                    mans_fails << "Uzvards ";
-                }
-                if(x == 3)
-                    {
-                        cout << "Vecums";
-                        cout << " ";
-                        mans_fails << "Vecums ";
-                    }
-                    if(x == 4)
-                        {
-                            cout << "Tel.nr.";
-                            cout << " ";
-                            mans_fails << "Tel.nr. ";
-                        }
-                        if(x == 5)
-                            {
-                                cout << "Ceka nr.";
-                                cout << " ";
-                                mans_fails << "Ceka nr. ";
-                            }
-                            if(x == 6)
-                                {
-                                    cout << "Produkti";
-                                    cout << " ";
-                                    mans_fails << "Produkti ";
-                                }
-     }
-    cout << endl;
-    mans_fails << endl;
-
-
-    filename = "produkti.txt";
-    file.open(filename.c_str());
-
-    string Rand_Mas[a][b];
-    for(int x = 0; x < a; x++)
-     {
-      for( int y = 0; y < b; y++)
-       {
-        if(y == 0)
-            {
-                ID = ID + 1;
-                cout << ID << " ";
-                mans_fails << ID << " ";
-            }
-         if(y == 1)
-             {
-                Rand_Mas[x][y] = vardi[rand()%8];
-             }
-            if(y == 2)
-                {
-                    Rand_Mas[x][y] = uzvardi[rand()%8];
-                }
-                if(y == 3)
-                    {
-                        Rand_Mas[x][y] = to_string(rand()%108+12);
-                    }
-                    if(y == 4)
-                        {
-                            Rand_Mas[x][y] = "2"+to_string(((rand()%99999)+10000)*99);
-                        }
-                       if(y == 5)
-                           {
-                               Rand_Mas[x][y] = "#00"+to_string(((rand()%9999)+1000)*99);
-                           }
-                           if(y == 6)
-                                {
-                                    file >> word;
-                                    cout << word;
-                                }
-
-                            mans_fails << Rand_Mas[x][y] << " ";
-                            cout << Rand_Mas[x][y] << " ";
-                        }
-                        cout << '\n';
-                        mans_fails << endl;
-                    }
-
-
-    cout<< endl;
-
-
-
-    cout <<"Ludzu ievadiet skaitli no 0 - 7, lai izveletos konkretu personu" << endl;
-    cin >> c;
-
-    for(int i = 0; i < a; i++)
-    {
-        for(int j = 0; j < b; j++)
-        {
-            if(Rand_Mas[i][j] == vardi[c])
-            {
-                reizes = reizes + 1;
-            }
-        }
-    }
-    cout << endl;
-    cout << endl;
-    cout << "Persona "<< vardi[c] <<" tika atrasts " << reizes << " reizes " << endl;
-    mans_fails.close();
-
-
-
-    return 0;
+        return 0;
 }
-// Edgars Igors Kristaps Rainers Ingolfs Peters Janis Rolands
-// Berzins Abolins Cakars Biezins Alpa Lapa Lietins Janka
+
+
