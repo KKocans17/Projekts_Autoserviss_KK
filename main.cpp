@@ -12,35 +12,43 @@ int main()
        int uzsk;
        fstream file;
        string filename;
+       string vardi3;
        string vardi_2;
        string uzvardi_2;
        string produkti_2;
        string vardi[9999];
        string uzvardi[9999];
        string produkti[9999];
+       string vards;
+       char x;
 
    {
+       ifstream file;
+
        filename = "personuvardi.txt";
        file.open(filename.c_str());
-
- cout << "Personu vardi: " << endl;
-    for(int i = 0; i < 8; i++)
+       //file.get(x);
+         while(!file.eof()){
+                cout << x;
+         file.get(x);
+        if(x != ' ')
         {
-            cout <<"Vards:" << i << endl;
-            file >> vardi_2;
-            cout << vardi_2 << endl;
-            vardi[i] = vardi_2;
+            vards += x;
+
+            cout << "Personu vardi: " << endl;
+            cout <<"Vards:" << vards << endl;
+            cout << endl;
         }
-    cout << endl;
+
+         }
 
 
-    for(int i = 0; i < 8; i++)
-        {
-            cout << vardi[i] << " ";
+
+              file.close();
         }
-    cout << endl;
-    file.close();
-   }
+
+
+
     filename = "uzvardi2.txt";
     file.open(filename.c_str());
 
