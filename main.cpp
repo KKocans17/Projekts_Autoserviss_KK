@@ -19,8 +19,9 @@ int main()
        string vardi[9999];
        string uzvardi[9999];
        string produkti[9999];
-       string vards;
+       string vards[9999];
        char x;
+       int sk = 0;
 
    {
        ifstream file;
@@ -29,24 +30,46 @@ int main()
        file.open(filename.c_str());
        //file.get(x);
          while(!file.eof()){
-                cout << x;
+                //cout << x;
          file.get(x);
-        if(x != ' ')
+        if(x != ',')
         {
-            vards += x;
+            vards[sk] += x;
 
-            cout << "Personu vardi: " << endl;
-            cout <<"Vards:" << vards << endl;
-            cout << endl;
+
+            //cout << "Personu vardi: " << endl;
+            //cout <<"Vards:" << vards[3] << endl;
+           // cout << endl;
+        }
+        else
+        {
+            sk = sk+1;
         }
 
          }
 
 
+    }
+        int d;
+        int c;
+            {
+                if (x != ',')
+                {
+                    d = c + 1;
+                }
+                if (x != '.')
+                {
 
-              file.close();
-        }
+                }
 
+         }
+         cout << "Personu vardi: " << endl;
+            cout <<"Vards:" << vards[d] << endl;
+
+
+            cout << endl;
+            }
+ file.close();
 
 
     filename = "uzvardi2.txt";
@@ -98,7 +121,57 @@ int main()
     ofstream mans_fails;
     mans_fails.open("dati2.txt", ios::out);
 
-        return 0;
+   /* for(int x = 0; x < a; x++)
+     {
+      if(x == 0)
+          {
+             cout << "ID";
+             cout << " ";
+             mans_fails << "ID ";
+          }
+         if(x == 1)
+             {
+                cout << "Vards";
+                cout << " ";
+                mans_fails << "Vards ";
+             }
+            if(x == 2)
+                {
+                    cout << "Uzvards";
+                    cout << " ";
+                    mans_fails << "Uzvards ";
+                }
+                if(x == 3)
+                    {
+                        cout << "Vecums";
+                        cout << " ";
+                        mans_fails << "Vecums ";
+                    }
+                    if(x == 4)
+                        {
+                            cout << "Tel.nr.";
+                            cout << " ";
+                            mans_fails << "Tel.nr. ";
+                        }
+                        if(x == 5)
+                            {
+                                cout << "Ceka nr.";
+                                cout << " ";
+                                mans_fails << "Ceka nr. ";
+                            }
+                            if(x == 6)
+                                {
+                                    cout << "Produkti";
+                                    cout << " ";
+                                    mans_fails << "Produkti ";
+                                }
+     }
+    cout << endl;
+    mans_fails << endl;
+
+   */     return 0;
 }
+
+
 
 
